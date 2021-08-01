@@ -5,9 +5,8 @@ import sqlalchemy
 from sqlalchemy.orm import Session
 from sqlalchemy.ext.automap import automap_base
 
-
-MYSQL_PASSWORD = os.environ.get('MYSQL_PASSWORD')
-CATEGORIES_PATH = "./categories.json"
+MYSQL_PASSWORD = os.environ.get('MYSQL_ROOT_PASSWORD')
+CATEGORIES_PATH = "./database/categories.json"
 
 Base = automap_base()
 
