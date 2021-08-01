@@ -7,8 +7,7 @@ from sqlalchemy.ext.automap import automap_base
 
 
 MYSQL_PASSWORD = os.environ.get('MYSQL_PASSWORD')
-LOGS = "data/logs.txt"
-CATEGORIES_PATH = "data/categories.json"
+CATEGORIES_PATH = "./categories.json"
 
 Base = automap_base()
 

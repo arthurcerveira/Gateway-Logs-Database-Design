@@ -1,5 +1,5 @@
 import json
-from database_engine import *
+from database.engine import *
 
 
 LOGS = "data/logs.txt"
@@ -46,13 +46,13 @@ def add_log_to_database(log):
         insert_data(Service, service)
 
     # Add response header to DB
-    reponse_heade = log["response"]["headers"]
+    reponse_header = log["response"]["headers"]
 
     # Convert content lenght to int
-    reponse_heade["Content-Length"] = int(
-        reponse_heade["Content-Length"])
+    reponse_header["Content-Length"] = int(
+        reponse_header["Content-Length"])
 
-    response_header_id = insert_data(ResponseHeader, reponse_heade)
+    response_header_id = insert_data(ResponseHeader, reponse_header)
 
     # Add response to DB
     reponse = log["response"]
