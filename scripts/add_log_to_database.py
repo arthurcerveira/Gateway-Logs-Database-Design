@@ -1,8 +1,13 @@
 import json
+import argparse
+
 from database.engine import *
 
+parser = argparse.ArgumentParser(description='Add logs to database.')
+parser.add_argument("log", metavar="Logs path")
+args = parser.parse_args()
 
-LOGS = "data/logs.txt"
+LOGS = args.log
 
 
 def insert_data(table, data):
@@ -150,8 +155,14 @@ def add_log_to_database(log):
 
 
 if __name__ == "__main__":
+    c = 0
     with open(LOGS) as logs:
         for line in logs:
             log = json.loads(line)
 
             add_log_to_database(log)
+
+            if c == 100:
+                break
+
+            c += 1
