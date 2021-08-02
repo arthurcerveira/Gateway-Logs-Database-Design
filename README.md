@@ -42,7 +42,13 @@ $ python setup_database.py
 
 ### Executando os scripts
 
-Primeiro é necessário adicionar os dados do arquivo `data/logs.txt` no banco de dados, definindo seu caminho como argumento de linha de comando.
+Os dados de logs estão compactados no arquivo `data/logs.zip`, e podem ser obtidos através do comando:
+
+```bash
+$ unzip data/logs.zip -d data/
+```
+
+Agora os dados do arquivo `data/logs.txt` podem ser adicionados no banco de dados, definindo seu caminho como argumento de linha de comando.
 
 ```bash
 $ cd scripts/
