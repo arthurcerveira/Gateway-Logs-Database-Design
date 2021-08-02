@@ -1,14 +1,17 @@
 import json
 import argparse
+from datetime import datetime
 
 from database.engine import *
 
+
 parser = argparse.ArgumentParser(description='Add logs to database.')
 parser.add_argument("log", metavar="Logs path")
+parser.add_argument("-n", metavar="Number of insertions")
 args = parser.parse_args()
 
 LOGS = args.log
-
+INSERTIONS = args.n if args.n is not None else float("inf")
 
 def insert_data(table, data):
     # Format data according to database style
@@ -155,14 +158,18 @@ def add_log_to_database(log):
 
 
 if __name__ == "__main__":
-    c = 0
+    progress = 0
+
     with open(LOGS) as logs:
         for line in logs:
             log = json.loads(line)
 
             add_log_to_database(log)
 
-            if c == 100:
+            progress += 1
+            if progress % 1000 == 0:
+                print(f"[{datetime.now():%H:%M:%S}] {progress} logs processed...")
+
+            if progress >= INSERTIONS:
                 break
 
-            c += 1
