@@ -52,7 +52,7 @@ Agora os dados do arquivo `data/logs.txt` podem ser adicionados no banco de dado
 
 ```bash
 $ cd scripts/
-$ python add_log_to_database.py -n 10000 ../data/logs.txt
+$ python add_log_to_database.py -n 2500 ../data/logs.txt
 ```
 
 Então podem ser executados os scripts para gerar os relatórios.
@@ -65,7 +65,7 @@ $ python services_report.py
 
 Esse scripts geram arquivos CSV com os resultados, disponíveis no diretório `reports` na raiz do projeto.
 
-O banco de dados pode ser então finalizado e removido.
+Caso o banco de dados tenha sido inicializado com Docker, este pode ser então finalizado e removido.
 
 ```bash
 $ docker stop mysql_melhorenvio
