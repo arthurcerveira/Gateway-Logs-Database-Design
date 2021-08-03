@@ -7,7 +7,7 @@ from database.engine import *
 
 parser = argparse.ArgumentParser(description='Add logs to database.')
 parser.add_argument("log", metavar="Logs path")
-parser.add_argument("-n", metavar="Number of insertions")
+parser.add_argument("-n", metavar="Number of insertions", type=int)
 args = parser.parse_args()
 
 LOGS = args.log
@@ -159,6 +159,7 @@ def add_log_to_database(log):
 
 if __name__ == "__main__":
     progress = 0
+    print(f"[{datetime.now():%H:%M:%S}] Starting to add logs to database...")
 
     with open(LOGS) as logs:
         for line in logs:
@@ -167,7 +168,7 @@ if __name__ == "__main__":
             add_log_to_database(log)
 
             progress += 1
-            if progress % 1000 == 0:
+            if progress % 250 == 0:
                 print(f"[{datetime.now():%H:%M:%S}] {progress} logs processed...")
 
             if progress >= INSERTIONS:

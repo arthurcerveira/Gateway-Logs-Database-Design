@@ -3,6 +3,7 @@ import os
 from sqlalchemy import func
 from database.engine import session, Solicitation, Service, Latencies
 
+
 REPORTS = "../reports"
 
 if not os.path.isdir(REPORTS):
