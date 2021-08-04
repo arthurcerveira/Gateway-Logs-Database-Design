@@ -65,6 +65,8 @@ $ python services_report.py
 
 Esse scripts geram arquivos CSV com os resultados, disponíveis no diretório `reports` na raiz do projeto.
 
+Exemplos de relatórios podem ser acessados na pasta `reports/examples`, executados para 10000 entradas de logs.
+
 Caso o banco de dados tenha sido inicializado com Docker, este pode ser então finalizado e removido.
 
 ```bash
